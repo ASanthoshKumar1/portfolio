@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- FINAL: Double-Loop Reveal Content (Tamil & Professional) ---
     const phases = [
-        "யாருத்தும் ஒற்றுற, யாவரும் கேகளீர்", // Tamil Tagline
-        "B.Tech CSE: Where Java Meets Nmap." // Professional Tagline
+        "யாதும் ஊரே யாவரும் கேளிர்" , // Tamil Tagline
+        "Encrypting dreams and debugging nightmares.." // Professional Tagline
     ];
     let phaseIndex = 0;
     let charIndex = 0;
@@ -104,3 +104,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- START THE DOUBLE-LOOP TYPING ANIMATION ---
     setTimeout(type, 1000); // Start after 1 second
 });
+
