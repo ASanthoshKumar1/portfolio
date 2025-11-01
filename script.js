@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.getElementById('typing-text');
     const cursor = document.querySelector('.blinking-cursor');
 
-    // --- NEW: Double-Loop Reveal Content ---
+    // --- FINAL: Double-Loop Reveal Content (Tamil & Professional) ---
     const phases = [
-        "SCAN. CODE. SECURE.",
-        "B.Tech CSE: Where Java Meets Nmap."
+        "யாருத்தும் ஒற்றுற, யாவரும் கேகளீர்", // Tamil Tagline
+        "B.Tech CSE: Where Java Meets Nmap." // Professional Tagline
     ];
     let phaseIndex = 0;
     let charIndex = 0;
@@ -20,13 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
             charIndex++;
             setTimeout(type, typingSpeed); // Typing speed
         } else {
-            // End of phase, start the next phase logic
-            setTimeout(nextPhase, 1500); // Pause before next phase
+            // Pause before starting the next phase
+            setTimeout(nextPhase, 2000); // Increased pause to 2 seconds for better reading
         }
     }
 
     function nextPhase() {
-        // Toggle phase index (0 becomes 1, 1 becomes 0)
+        // Toggle phase index (0 -> 1, 1 -> 0)
         phaseIndex = (phaseIndex + 1) % phases.length;
         charIndex = 0;
         
@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Initial Hero Animation (Fade-In) ---
+    // Note: The opacity transition is handled by CSS
     hero.style.opacity = 0; 
     setTimeout(() => {
         hero.style.transition = 'opacity 1s ease-in';
@@ -85,19 +86,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Add the CSS class to start the animation (defined in style.css)
                 entry.target.classList.add('is-visible');
+                // Stop observing once visible
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1 
+        threshold: 0.1 // Trigger when 10% of the section is visible
     });
 
     sectionsToReveal.forEach(section => {
+        // Apply initial hidden state (CSS must define '.section-hidden')
         section.classList.add('section-hidden');
         observer.observe(section);
     });
     
     // --- START THE DOUBLE-LOOP TYPING ANIMATION ---
-    setTimeout(type, 1000); 
+    setTimeout(type, 1000); // Start after 1 second
 });
