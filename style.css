@@ -27,13 +27,11 @@ body {
 }
 
 /* --- SCROLL REVEAL ANIMATION STATES --- */
-/* Initial state for Scroll Reveal (JS adds 'section-hidden' class) */
 .section-hidden {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-/* Final state when section becomes visible (JS adds 'is-visible' class) */
 .is-visible {
     opacity: 1;
     transform: translateY(0);
@@ -52,7 +50,7 @@ body {
     opacity: 0.1;
     background-image: repeating-linear-gradient(
         45deg,
-        rgba(255, 195, 0, 0.08), /* Gold grid line */
+        rgba(255, 195, 0, 0.08), 
         rgba(255, 195, 0, 0.08) 2px,
         transparent 2px,
         transparent 15px
@@ -70,7 +68,7 @@ body {
 .glitch {
     font-size: 3.8em;
     font-weight: bold;
-    color: var(--accent-gold); /* Base Gold Color */
+    color: var(--accent-gold); 
     text-shadow: 0 0 5px var(--accent-gold);
     position: relative;
     animation: glitch-anim 1s infinite linear alternate-reverse;
@@ -85,12 +83,9 @@ body {
 /* --- CODE TYPING ANIMATION (Tagline) --- */
 .code-typing {
     font-size: 1.1em;
-    /* Styles are handled primarily by JS for the two-phase typing reveal */
     display: block;
-    min-height: 1.5em; /* Ensure space is reserved for text */
+    min-height: 1.5em; /* Space for the typing text */
 }
-
-/* Blinking Cursor Class (Used by JS) */
 .blinking-cursor {
     display: inline-block;
     color: var(--accent-gold);
@@ -196,7 +191,7 @@ nav {
 .nav-link:hover, .active-nav {
     color: var(--accent-gold) !important;
     text-shadow: 0 0 10px var(--accent-gold);
-    border-bottom: 2px solid var(--accent-gold); /* Highlight current section */
+    border-bottom: 2px solid var(--accent-gold);
 }
 .cta-btn {
     display: inline-block;
