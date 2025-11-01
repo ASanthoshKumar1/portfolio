@@ -26,6 +26,20 @@ body {
     position: relative;
 }
 
+/* --- SCROLL REVEAL ANIMATION STATES --- */
+/* Initial state for Scroll Reveal (JS adds 'section-hidden' class) */
+.section-hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* Final state when section becomes visible (JS adds 'is-visible' class) */
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 /* --- FANCY CYBERSECURITY BACKGROUND ANIMATION --- */
 .cyber-background {
     position: fixed;
@@ -68,25 +82,23 @@ body {
     100% { text-shadow: 0 0.05em 0 var(--accent-teal), 0 -0.05em 0 var(--accent-gold); }
 }
 
-/* --- CODE TYPING ANIMATION --- */
+/* --- CODE TYPING ANIMATION (Tagline) --- */
 .code-typing {
     font-size: 1.1em;
-    overflow: hidden; 
-    white-space: nowrap; 
-    width: 0; 
-    animation: typing 4s steps(60, end) 1s forwards, blink-caret .75s step-end infinite;
+    /* Styles are handled primarily by JS for the two-phase typing reveal */
+    display: block;
+    min-height: 1.5em; /* Ensure space is reserved for text */
+}
+
+/* Blinking Cursor Class (Used by JS) */
+.blinking-cursor {
     display: inline-block;
-    border-right: 0.15em solid var(--accent-gold); /* Gold Cursor */
+    color: var(--accent-gold);
+    animation: blink-cursor .75s step-end infinite;
 }
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--accent-gold); }
+@keyframes blink-cursor {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
 }
 
 /* --- HERO SECTION LAYOUT & IMAGE --- */
@@ -181,9 +193,10 @@ nav {
     text-decoration: none;
     transition: color 0.3s, text-shadow 0.3s;
 }
-.nav-link:hover {
-    color: var(--accent-gold);
+.nav-link:hover, .active-nav {
+    color: var(--accent-gold) !important;
     text-shadow: 0 0 10px var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold); /* Highlight current section */
 }
 .cta-btn {
     display: inline-block;
@@ -262,13 +275,8 @@ h2 {
 .tags { font-size: 0.8em; color: var(--accent-gold); margin-bottom: 10px; }
 .impact-text { color: var(--accent-gold); font-weight: bold; margin-top: 10px; }
 
-/* --- TIMELINE & FOOTER --- */
-.timeline { border-left: 2px solid var(--accent-gold); padding-left: 20px; }
-.timeline-date { color: var(--accent-teal); font-weight: bold; display: block; margin-bottom: 5px; }
-
-/* --- CONTACT & SOCIAL LINKS (CRITICAL FIX) --- */
+/* --- CONTACT & SOCIAL LINKS --- */
 #contact { text-align: center; }
-.contact-details { margin: 30px 0; font-size: 1.1em; }
 .social-links {
     margin-top: 20px;
 }
@@ -277,13 +285,13 @@ h2 {
     margin: 0 15px;
 }
 .social-icon {
-    font-size: 2.5em; /* Make icons large and prominent */
+    font-size: 2.5em;
     display: inline-block;
-    color: var(--accent-gold); /* Base Gold Color */
+    color: var(--accent-gold);
     transition: transform 0.3s, text-shadow 0.3s;
 }
 .social-links a:hover .social-icon {
-    color: var(--accent-teal); /* Change color on hover */
+    color: var(--accent-teal);
     transform: scale(1.1);
-    text-shadow: 0 0 15px var(--accent-teal); /* Teal glow on hover */
+    text-shadow: 0 0 15px var(--accent-teal);
 }
