@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(type, typingSpeed); // Typing speed
         } else {
             // Pause before starting the next phase
-            setTimeout(nextPhase, 2000); // Increased pause to 2 seconds for better reading
+            setTimeout(nextPhase, 2000); // Pause for 2 seconds
         }
     }
 
@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Initial Hero Animation (Fade-In) ---
-    // Note: The opacity transition is handled by CSS
     hero.style.opacity = 0; 
     setTimeout(() => {
         hero.style.transition = 'opacity 1s ease-in';
