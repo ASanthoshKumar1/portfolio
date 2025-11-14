@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM Element Selections
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     const hero = document.getElementById('hero');
     const typingElement = document.getElementById('typing-text');
     const cursor = document.querySelector('.blinking-cursor');
 
-    // --- Double-Loop Typing Animation Content ---
+    // --- FINAL: Double-Loop Reveal Content (Tamil & Professional) ---
     const phases = [
         "யாதும் ஊரே யாவரும் கேளிர்" , // Tamil Tagline
-        "Encrypting dreams and debugging nightmares." // Professional Tagline
+        "Encrypting dreams and debugging nightmares.." // Professional Tagline
     ];
     let phaseIndex = 0;
     let charIndex = 0;
@@ -49,8 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const categories = card.getAttribute('data-category').split(' ');
 
                 if (filter === 'all' || categories.includes(filter)) {
-                    // Set display to 'flex' as per the modern CSS layout
-                    card.style.display = 'flex'; 
+                    card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
                 }
@@ -63,13 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetEl = document.querySelector(targetId);
-            
-            if (targetEl) {
-                targetEl.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
             
             // Highlight Nav Link
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active-nav'));
@@ -77,45 +71,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    /* *** MODIFICATION START ***
-    The initial hero fade-in logic conflicts with the scroll observer's opacity control.
-    We remove the separate hero animation block and include the hero in the observer instead.
-    
-    // --- Initial Hero Animation (Fade-In) --- (REMOVED)
-    // if (hero) {
-    //     hero.style.opacity = 0;
-    //     setTimeout(() => {
-    //         hero.style.transition = 'opacity 1s ease-in';
-    //         hero.style.opacity = 1;
-    //     }, 500);
-    // } 
-    */
+    // --- Initial Hero Animation (Fade-In) ---
+    hero.style.opacity = 0; 
+    setTimeout(() => {
+        hero.style.transition = 'opacity 1s ease-in';
+        hero.style.opacity = 1;
+    }, 500);
+
 
     // --- Advanced Interactivity: Scroll Reveal Animation ---
-    // MODIFICATION 1: Select both <section> and the <header id="hero"> element.
-    const sectionsToReveal = document.querySelectorAll('section, header#hero'); 
+    const sectionsToReveal = document.querySelectorAll('section:not(#hero)');
 
-    const observer = new IntersectionObserver((entries, obs) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add the CSS class to start the animation 
+                // Add the CSS class to start the animation (defined in style.css)
                 entry.target.classList.add('is-visible');
                 // Stop observing once visible
-                obs.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
     }, {
         threshold: 0.1 // Trigger when 10% of the section is visible
     });
 
-    sectionsToReveal.forEach(element => { // MODIFICATION 2: Use a general name 'element'
+    sectionsToReveal.forEach(section => {
         // Apply initial hidden state (CSS must define '.section-hidden')
-        element.classList.add('section-hidden');
-        observer.observe(element);
+        section.classList.add('section-hidden');
+        observer.observe(section);
     });
     
     // --- START THE DOUBLE-LOOP TYPING ANIMATION ---
-    if (typingElement) {
-        setTimeout(type, 1000); // Start after 1 second
-    }
+    setTimeout(type, 1000); // Start after 1 second
 });
+
