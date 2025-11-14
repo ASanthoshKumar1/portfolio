@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // DOM Element Selections
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     const hero = document.getElementById('hero');
     const typingElement = document.getElementById('typing-text');
     const cursor = document.querySelector('.blinking-cursor');
 
-    // --- FINAL: Double-Loop Reveal Content (Tamil & Professional) ---
+    // --- Double-Loop Typing Animation Content ---
     const phases = [
         "யாதும் ஊரே யாவரும் கேளிர்" , // Tamil Tagline
-        "Encrypting dreams and debugging nightmares.." // Professional Tagline
+        "Encrypting dreams and debugging nightmares." // Professional Tagline
     ];
     let phaseIndex = 0;
     let charIndex = 0;
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const categories = card.getAttribute('data-category').split(' ');
 
                 if (filter === 'all' || categories.includes(filter)) {
-                    // Set display to block for visible cards
+                    // Set display to 'flex' as per the modern CSS layout
                     card.style.display = 'flex'; 
                 } else {
                     card.style.display = 'none';
@@ -76,17 +77,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Initial Hero Animation (Fade-In) ---
-    if (hero) {
-        hero.style.opacity = 0;
-        setTimeout(() => {
-            hero.style.transition = 'opacity 1s ease-in';
-            hero.style.opacity = 1;
-        }, 500);
-    }
+    /* *** MODIFICATION START ***
+    The initial hero fade-in logic conflicts with the scroll observer's opacity control.
+    We remove the separate hero animation block and include the hero in the observer instead.
+    
+    // --- Initial Hero Animation (Fade-In) --- (REMOVED)
+    // if (hero) {
+    //     hero.style.opacity = 0;
+    //     setTimeout(() => {
+    //         hero.style.transition = 'opacity 1s ease-in';
+    //         hero.style.opacity = 1;
+    //     }, 500);
+    // } 
+    */
 
     // --- Advanced Interactivity: Scroll Reveal Animation ---
-    const sectionsToReveal = document.querySelectorAll('section');
+    // MODIFICATION 1: Select both <section> and the <header id="hero"> element.
+    const sectionsToReveal = document.querySelectorAll('section, header#hero'); 
 
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
@@ -101,10 +108,10 @@ document.addEventListener('DOMContentLoaded', function() {
         threshold: 0.1 // Trigger when 10% of the section is visible
     });
 
-    sectionsToReveal.forEach(section => {
+    sectionsToReveal.forEach(element => { // MODIFICATION 2: Use a general name 'element'
         // Apply initial hidden state (CSS must define '.section-hidden')
-        section.classList.add('section-hidden');
-        observer.observe(section);
+        element.classList.add('section-hidden');
+        observer.observe(element);
     });
     
     // --- START THE DOUBLE-LOOP TYPING ANIMATION ---
