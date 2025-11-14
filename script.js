@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const categories = card.getAttribute('data-category').split(' ');
 
                 if (filter === 'all' || categories.includes(filter)) {
-                    card.style.display = 'block';
+                    // Set display to block for visible cards
+                    card.style.display = 'flex'; 
                 } else {
                     card.style.display = 'none';
                 }
@@ -61,9 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetEl = document.querySelector(targetId);
+            
+            if (targetEl) {
+                targetEl.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
             
             // Highlight Nav Link
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active-nav'));
@@ -72,23 +77,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Initial Hero Animation (Fade-In) ---
-    hero.style.opacity = 0; 
-    setTimeout(() => {
-        hero.style.transition = 'opacity 1s ease-in';
-        hero.style.opacity = 1;
-    }, 500);
-
+    if (hero) {
+        hero.style.opacity = 0;
+        setTimeout(() => {
+            hero.style.transition = 'opacity 1s ease-in';
+            hero.style.opacity = 1;
+        }, 500);
+    }
 
     // --- Advanced Interactivity: Scroll Reveal Animation ---
-    const sectionsToReveal = document.querySelectorAll('section:not(#hero)');
+    const sectionsToReveal = document.querySelectorAll('section');
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add the CSS class to start the animation (defined in style.css)
+                // Add the CSS class to start the animation 
                 entry.target.classList.add('is-visible');
                 // Stop observing once visible
-                observer.unobserve(entry.target);
+                obs.unobserve(entry.target);
             }
         });
     }, {
@@ -102,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // --- START THE DOUBLE-LOOP TYPING ANIMATION ---
-    setTimeout(type, 1000); // Start after 1 second
+    if (typingElement) {
+        setTimeout(type, 1000); // Start after 1 second
+    }
 });
-
