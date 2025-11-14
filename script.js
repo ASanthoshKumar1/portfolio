@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Toggle phase index (0 -> 1, 1 -> 0)
         phaseIndex = (phaseIndex + 1) % phases.length;
         charIndex = 0;
-
+        
         // Instant delete (slick reveal)
-        typingElement.textContent = '';
+        typingElement.textContent = ''; 
 
         setTimeout(type, 50); // Start typing the next phrase quickly
     }
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector(targetId).scrollIntoView({
                 behavior: 'smooth'
             });
-
+            
             // Highlight Nav Link
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active-nav'));
             this.classList.add('active-nav');
@@ -72,11 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Initial Hero Animation (Fade-In) ---
-    hero.style.opacity = 0;
+    hero.style.opacity = 0; 
     setTimeout(() => {
         hero.style.transition = 'opacity 1s ease-in';
         hero.style.opacity = 1;
     }, 500);
+
 
     // --- Advanced Interactivity: Scroll Reveal Animation ---
     const sectionsToReveal = document.querySelectorAll('section:not(#hero)');
@@ -84,7 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Add the CSS class to start the animation (defined in style.css)
                 entry.target.classList.add('is-visible');
+                // Stop observing once visible
                 observer.unobserve(entry.target);
             }
         });
@@ -93,10 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     sectionsToReveal.forEach(section => {
+        // Apply initial hidden state (CSS must define '.section-hidden')
         section.classList.add('section-hidden');
         observer.observe(section);
     });
-
+    
     // --- START THE DOUBLE-LOOP TYPING ANIMATION ---
     setTimeout(type, 1000); // Start after 1 second
 });
