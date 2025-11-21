@@ -1,11 +1,14 @@
-/* === THEME: DRAVIDIAN CYBER-FUSION - FINAL STYLING === */
+/* === THEME: DRAVIDIAN CYBER-FUSION - PEACOCK EDITION === */
 :root {
-    --bg-dark: #0A001F; /* Deep Obsidian */
+    --bg-dark: #001A33; /* Deep Peacock Blue/Navy */
     --text-light: #F8F0E3; /* Creamy White */
     --accent-gold: #FFC300; /* Primary Gold/Saffron (Cyber/Security) */
     --accent-teal: #00FFFF; /* Secondary Teal/Indigo (Developer/Code) */
-    --border-color: #381A5B; /* Darker Purple for Borders */
-    --card-bg: #1B0A33; /* Slightly lighter card background */
+    --accent-peacock-green: #00FFAA; /* Peacock Green */
+    --accent-peacock-blue: #0080FF; /* Peacock Blue */
+    --accent-peacock-purple: #8A2BE2; /* Peacock Purple */
+    --border-color: #004080; /* Darker Peacock Blue for Borders */
+    --card-bg: #00264D; /* Slightly lighter peacock background */
     
     font-family: 'Share Tech Mono', monospace, 'Georgia', serif; 
     scroll-behavior: smooth;
@@ -37,7 +40,7 @@ body {
     transform: translateY(0);
 }
 
-/* --- FANCY CYBERSECURITY BACKGROUND ANIMATION --- */
+/* --- FANCY CYBERSECURITY BACKGROUND ANIMATION - PEACOCK THEME --- */
 .cyber-background {
     position: fixed;
     top: 0;
@@ -46,14 +49,18 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    opacity: 0.1;
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(255, 195, 0, 0.08), 
-        rgba(255, 195, 0, 0.08) 2px,
-        transparent 2px,
-        transparent 15px
-    );
+    opacity: 0.15;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 170, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 128, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.08) 0%, transparent 50%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(0, 255, 170, 0.05), 
+            rgba(0, 128, 255, 0.05) 2px,
+            transparent 2px,
+            transparent 15px
+        );
     animation: background-scroll 60s linear infinite;
 }
 
@@ -63,12 +70,12 @@ body {
     }
 }
 
-/* --- INTERACTIVE FONT (SUBTLE GLOW INSTEAD OF GLITCH) --- */
+/* --- INTERACTIVE FONT (PEACOCK GLOW) --- */
 .glitch {
     font-size: 3.8em;
     font-weight: bold;
-    color: var(--accent-gold); 
-    text-shadow: 0 0 12px rgba(255, 195, 0, 0.8);
+    color: var(--accent-peacock-green); 
+    text-shadow: 0 0 12px rgba(0, 255, 170, 0.8);
     position: relative;
 }
 
@@ -80,7 +87,7 @@ body {
 }
 .blinking-cursor {
     display: inline-block;
-    color: var(--accent-gold);
+    color: var(--accent-peacock-blue);
     animation: blink-cursor .75s step-end infinite;
 }
 @keyframes blink-cursor {
@@ -100,9 +107,12 @@ body {
 .hero-content { 
     max-width: 55%; 
 }
-.secondary-title { color: #A0B0D0; font-size: 3.5em; }
+.secondary-title { 
+    color: #A0D0FF; /* Lighter peacock blue */
+    font-size: 3.5em; 
+}
 .tagline { margin: 20px 0 40px; max-width: 700px; }
-.location-tag { color: var(--accent-teal); font-style: italic; margin-top: 15px; }
+.location-tag { color: var(--accent-peacock-green); font-style: italic; margin-top: 15px; }
 
 .hero-visuals {
     display: flex;
@@ -115,13 +125,13 @@ body {
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--accent-gold); 
-    box-shadow: 0 0 25px rgba(255, 195, 0, 0.8); 
+    border: 5px solid var(--accent-peacock-blue); 
+    box-shadow: 0 0 25px rgba(0, 128, 255, 0.8); 
     margin-bottom: 30px;
     z-index: 10;
 }
 
-/* --- 3D ROTATING CUBE ANIMATION --- */
+/* --- 3D ROTATING CUBE ANIMATION - PEACOCK COLORS --- */
 .cube-container {
     perspective: 1000px;
     width: 200px; 
@@ -141,15 +151,15 @@ body {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid var(--accent-gold);
+    border: 2px solid var(--accent-peacock-green);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5em;
     font-weight: bold;
-    color: var(--accent-teal);
-    background: rgba(27, 10, 51, 0.8);
-    box-shadow: 0 0 10px var(--accent-gold); 
+    color: var(--accent-peacock-blue);
+    background: rgba(0, 38, 77, 0.8);
+    box-shadow: 0 0 10px var(--accent-peacock-purple); 
     backface-visibility: hidden;
 }
 .front  { transform: rotateY(0deg) translateZ(100px); }
@@ -164,9 +174,9 @@ body {
     to { transform: rotateY(360deg) rotateX(360deg) rotateZ(360deg); }
 }
 
-/* --- NAVIGATION & BUTTONS --- */
+/* --- NAVIGATION & BUTTONS - PEACOCK THEME --- */
 nav {
-    background-color: rgba(7, 0, 31, 0.95);
+    background-color: rgba(0, 13, 38, 0.95);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -181,9 +191,9 @@ nav {
     transition: color 0.3s, text-shadow 0.3s;
 }
 .nav-link:hover, .active-nav {
-    color: var(--accent-gold) !important;
-    text-shadow: 0 0 10px var(--accent-gold);
-    border-bottom: 2px solid var(--accent-gold);
+    color: var(--accent-peacock-green) !important;
+    text-shadow: 0 0 10px var(--accent-peacock-green);
+    border-bottom: 2px solid var(--accent-peacock-blue);
 }
 .cta-btn {
     display: inline-block;
@@ -194,33 +204,45 @@ nav {
     border-radius: 4px;
     transition: all 0.3s;
 }
-.primary { border: 1px solid var(--accent-teal); color: var(--accent-teal); }
-.primary:hover { background-color: rgba(0, 255, 255, 0.1); }
-.secondary { border: 1px solid var(--accent-gold); color: var(--accent-gold); }
-.secondary:hover { background-color: rgba(255, 195, 0, 0.1); }
+.primary { 
+    border: 1px solid var(--accent-peacock-blue); 
+    color: var(--accent-peacock-blue); 
+}
+.primary:hover { 
+    background-color: rgba(0, 128, 255, 0.1); 
+    box-shadow: 0 0 15px rgba(0, 128, 255, 0.3);
+}
+.secondary { 
+    border: 1px solid var(--accent-peacock-green); 
+    color: var(--accent-peacock-green); 
+}
+.secondary:hover { 
+    background-color: rgba(0, 255, 170, 0.1); 
+    box-shadow: 0 0 15px rgba(0, 255, 170, 0.3);
+}
 
-/* --- SECTIONS & HEADINGS --- */
+/* --- SECTIONS & HEADINGS - PEACOCK COLORS --- */
 section { 
     padding: 100px 0; 
     border-bottom: 1px dashed var(--border-color); 
 }
 h2 {
-    color: var(--accent-teal);
-    border-left: 5px solid var(--accent-gold);
+    color: var(--accent-peacock-blue);
+    border-left: 5px solid var(--accent-peacock-green);
     padding-left: 15px;
     margin-bottom: 40px;
 }
 .skill-group { 
     background: var(--card-bg); 
     padding: 25px; 
-    border-top: 3px solid var(--accent-gold);
+    border-top: 3px solid var(--accent-peacock-blue);
     border-radius: 4px; 
 }
-.skill-group h3 { color: var(--accent-teal); margin-top: 0; }
+.skill-group h3 { color: var(--accent-peacock-green); margin-top: 0; }
 .skill-group ul { list-style: none; padding-left: 0; }
 .skill-group li { padding: 8px 0; border-bottom: 1px dashed var(--border-color); }
 
-/* --- PROJECT GRID & 3D HOVER --- */
+/* --- PROJECT GRID & 3D HOVER - PEACOCK THEME --- */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -231,13 +253,13 @@ h2 {
     background: var(--card-bg);
     padding: 25px;
     border-radius: 4px;
-    border-top: 3px solid var(--accent-gold);
+    border-top: 3px solid var(--accent-peacock-blue);
     transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
     cursor: pointer;
 }
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px -10px rgba(255, 195, 0, 0.5);
+    box-shadow: 0 15px 40px -10px rgba(0, 255, 170, 0.5);
 }
 .project-image-container {
     width: 100%;
@@ -257,15 +279,22 @@ h2 {
 .project-card:hover .project-img {
     opacity: 1;
 }
-.tags { font-size: 0.8em; color: var(--accent-gold); margin-bottom: 10px; }
-.impact-text { color: var(--accent-gold); font-weight: bold; margin-top: 10px; }
+.tags { 
+    font-size: 0.8em; 
+    color: var(--accent-peacock-green); 
+    margin-bottom: 10px; 
+}
+.impact-text { 
+    color: var(--accent-peacock-blue); 
+    font-weight: bold; 
+    margin-top: 10px; 
+}
 
-/* --- CONTACT & SOCIAL LINKS --- */
+/* --- CONTACT & SOCIAL LINKS - PEACOCK THEME --- */
 #contact {
     text-align: left;
 }
 
-/* new contact cards with icons */
 .contact-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -280,6 +309,11 @@ h2 {
     border-radius: 14px;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 170, 0.2);
 }
 .contact-icon {
     width: 40px;
@@ -294,7 +328,7 @@ h2 {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--accent-teal);
+    color: var(--accent-peacock-blue);
 }
 .contact-value {
     font-size: 0.9rem;
@@ -302,6 +336,7 @@ h2 {
     text-decoration: none;
 }
 .contact-value:hover {
+    color: var(--accent-peacock-green);
     text-decoration: underline;
 }
 
@@ -316,11 +351,26 @@ h2 {
 .social-icon {
     font-size: 2.5em;
     display: inline-block;
-    color: var(--accent-gold);
-    transition: transform 0.3s, text-shadow 0.3s;
+    color: var(--accent-peacock-blue);
+    transition: transform 0.3s, text-shadow 0.3s, color 0.3s;
 }
 .social-links a:hover .social-icon {
-    color: var(--accent-teal);
+    color: var(--accent-peacock-green);
     transform: scale(1.1);
-    text-shadow: 0 0 15px var(--accent-teal);
+    text-shadow: 0 0 15px var(--accent-peacock-green);
 }
+
+/* --- ADDITIONAL PEACOCK FEATHERS DECORATION --- */
+.peacock-feather {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.03;
+    background: radial-gradient(circle, var(--accent-peacock-green) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: -1;
+}
+.feather-1 { top: 10%; left: 5%; }
+.feather-2 { top: 60%; right: 10%; }
+.feather-3 { bottom: 20%; left: 15%; }
