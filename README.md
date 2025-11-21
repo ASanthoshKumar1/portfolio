@@ -30,26 +30,6 @@ This repository contains a portfolio showcasing the skills and projects of ASant
     cd portfolio
     ```
 
-3.  **Open `index.html` in your web browser.** No further installation is required as the project is client-side.
-
-## Usage Examples & API Documentation (if applicable)
-
-This portfolio is a static website. To view it, simply open the `index.html` file in your browser. There is no backend or API to document.
-
-The `script.js` file contains the JavaScript logic, primarily for the typing animation effect in the hero section. The animation is triggered on page load and iterates through different phrases.
-
-```javascript
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    const hero = document.getElementById('hero');
-    const typingElement = document.getElementById('typing-text');
-    const cursor = document.querySelector('.blinking-cursor');
-
-    // --- Double-Loop Reveal Content (Tamil & Cybersecurity) ---
-    const phases = [
-        "யாதும் ஊரே யாவரும் ...
-```
 
 ## Configuration Options
 
