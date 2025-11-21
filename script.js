@@ -134,10 +134,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function initContactAnimations() {
         const contactSection = document.getElementById('contact');
         const contactCards = document.querySelectorAll('.contact-card');
-        const formElements = document.querySelectorAll('.form-group');
-        const socialItems = document.querySelectorAll('.social-item');
+        const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+        const socialCards = document.querySelectorAll('.social-card');
+        const submitBtn = document.querySelector('.cyber-submit-btn');
 
-        // Initialize AOS-like animations
+        // Initialize scroll animations
         function initScrollAnimations() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -157,100 +158,179 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Enhanced form interactions
         function initFormAnimations() {
-            const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
-            
             formInputs.forEach(input => {
-                // Add floating label functionality
+                // Check initial values and add focused class if needed
+                if (input.value) {
+                    input.parentElement.parentElement.classList.add('focused');
+                }
+
                 input.addEventListener('focus', function() {
-                    this.parentElement.classList.add('focused');
+                    this.parentElement.parentElement.classList.add('focused');
                 });
                 
                 input.addEventListener('blur', function() {
                     if (!this.value) {
-                        this.parentElement.classList.remove('focused');
+                        this.parentElement.parentElement.classList.remove('focused');
                     }
                 });
 
-                // Check initial values
-                if (input.value) {
-                    input.parentElement.classList.add('focused');
-                }
+                // Add input validation effects
+                input.addEventListener('input', function() {
+                    if (this.validity.valid) {
+                        this.style.color = 'var(--text-light)';
+                    } else {
+                        this.style.color = '#ff6b6b';
+                    }
+                });
             });
 
-            // Form submission animation
+            // Enhanced form submission
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    const submitBtn = this.querySelector('.cyber-submit-btn');
                     const btnText = submitBtn.querySelector('.btn-text');
                     const btnLoader = submitBtn.querySelector('.btn-loader');
+                    const btnIcon = submitBtn.querySelector('.btn-icon');
                     
                     // Show loading state
-                    btnText.style.display = 'none';
+                    btnText.textContent = 'Encrypting Message...';
+                    btnIcon.style.display = 'none';
                     btnLoader.style.display = 'block';
+                    submitBtn.style.pointerEvents = 'none';
                     
-                    // Simulate form submission
+                    // Simulate encryption and sending
                     setTimeout(() => {
-                        btnText.style.display = 'block';
                         btnLoader.style.display = 'none';
                         
-                        // Show success animation
-                        submitBtn.style.background = 'linear-gradient(135deg, var(--accent-peacock-green), #00CC00)';
-                        btnText.textContent = 'Message Sent!';
+                        // Success state
+                        submitBtn.style.background = 'linear-gradient(135deg, #00CC00, #00FFAA)';
+                        btnText.textContent = 'Message Sent Successfully!';
                         
-                        // Reset after 3 seconds
+                        // Create particle effect
+                        createParticleEffect(submitBtn);
+                        
+                        // Reset form after delay
                         setTimeout(() => {
                             submitBtn.style.background = 'linear-gradient(135deg, var(--accent-peacock-green), var(--accent-peacock-blue))';
                             btnText.textContent = 'Send Encrypted Message';
+                            btnIcon.style.display = 'block';
+                            submitBtn.style.pointerEvents = 'auto';
                             contactForm.reset();
                             
                             // Remove focused class from all form groups
-                            formElements.forEach(group => group.classList.remove('focused'));
+                            document.querySelectorAll('.form-group').forEach(group => {
+                                group.classList.remove('focused');
+                            });
                         }, 3000);
-                    }, 2000);
+                    }, 2500);
                 });
             }
         }
 
-        // Social links hover effects
-        function initSocialAnimations() {
-            socialItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
+        // Particle effect for form submission
+        function createParticleEffect(element) {
+            const rect = element.getBoundingClientRect();
+            const particles = 15;
+            
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 6px;
+                    height: 6px;
+                    background: var(--accent-peacock-green);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    left: ${rect.left + rect.width / 2}px;
+                    top: ${rect.top + rect.height / 2}px;
+                `;
+                
+                document.body.appendChild(particle);
+                
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 2 + Math.random() * 2;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                let opacity = 1;
+                const animateParticle = () => {
+                    opacity -= 0.02;
+                    particle.style.opacity = opacity;
+                    particle.style.transform = `translate(${vx * (1 - opacity) * 50}px, ${vy * (1 - opacity) * 50}px) scale(${1 - opacity})`;
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animateParticle);
+                    } else {
+                        particle.remove();
+                    }
+                };
+                
+                animateParticle();
+            }
+        }
+
+        // Enhanced contact card interactions
+        function initContactCardAnimations() {
+            contactCards.forEach(card => {
+                card.addEventListener('mouseenter', function(e) {
+                    // Create ripple effect
+                    const ripple = this.querySelector('.contact-ripple');
+                    if (ripple) {
+                        const rect = this.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        ripple.style.left = x + 'px';
+                        ripple.style.top = y + 'px';
+                    }
+                    
+                    // Add floating animation
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
                 });
                 
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
         }
 
-        // Contact cards sequential animation
-        function animateContactCards() {
-            contactCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.2}s`;
-                card.classList.add('animate-in');
+        // Social card animations
+        function initSocialCardAnimations() {
+            socialCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const orbits = this.querySelectorAll('.orbit');
+                    orbits.forEach(orbit => {
+                        orbit.style.animationDuration = '1.5s';
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const orbits = this.querySelectorAll('.orbit');
+                    orbits.forEach(orbit => {
+                        orbit.style.animationDuration = '3s';
+                    });
+                });
             });
         }
 
-        // Initialize all contact animations
+        // Initialize all animations
         initScrollAnimations();
         initFormAnimations();
-        initSocialAnimations();
+        initContactCardAnimations();
+        initSocialCardAnimations();
         
-        // Observe contact section for entry animations
-        const contactObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateContactCards();
-                    contactObserver.unobserve(entry.target);
-                }
+        // Background element animations
+        function initBackgroundAnimations() {
+            const bgElements = document.querySelectorAll('.bg-element');
+            bgElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 2}s`;
             });
-        }, { threshold: 0.3 });
-
-        contactObserver.observe(contactSection);
+        }
+        
+        initBackgroundAnimations();
     }
 
     // Initialize enhanced contact animations
@@ -289,4 +369,75 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // --- Floating Social Sidebar Interactions ---
+    function initFloatingSocial() {
+        const floatingSocial = document.querySelector('.floating-social-sidebar');
+        const socialFloats = document.querySelectorAll('.social-float');
+        
+        // Add hover effects to floating social icons
+        socialFloats.forEach(float => {
+            float.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) translateX(-5px)';
+            });
+            
+            float.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateX(0)';
+            });
+        });
+        
+        // Hide floating social on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                floatingSocial.style.transform = 'translateY(-50%) translateX(100px)';
+                floatingSocial.style.opacity = '0';
+            } else {
+                // Scrolling up
+                floatingSocial.style.transform = 'translateY(-50%) translateX(0)';
+                floatingSocial.style.opacity = '1';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    }
+
+    initFloatingSocial();
+
+    // --- Hero Social Links Animation ---
+    function initHeroSocialAnimations() {
+        const heroSocialLinks = document.querySelectorAll('.hero-social-link');
+        
+        heroSocialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.1)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    }
+
+    initHeroSocialAnimations();
+
+    // --- Footer Social Links Animation ---
+    function initFooterSocialAnimations() {
+        const footerSocialLinks = document.querySelectorAll('.footer-social-link');
+        
+        footerSocialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    }
+
+    initFooterSocialAnimations();
 });
