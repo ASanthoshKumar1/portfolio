@@ -11,7 +11,34 @@
 <body>
     <div class="cyber-background"></div>
     
-    
+    <!-- Floating Animation Elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Floating Social Sidebar -->
+    <div class="floating-social-sidebar">
+        <a href="https://wa.me/918637437840" target="_blank" class="social-float whatsapp-float" data-tooltip="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <div class="float-pulse"></div>
+        </a>
+        <a href="https://linkedin.com/in/asanthosh-kumar568" target="_blank" class="social-float linkedin-float" data-tooltip="Connect on LinkedIn">
+            <i class="fab fa-linkedin"></i>
+            <div class="float-pulse"></div>
+        </a>
+        <a href="https://github.com/ASanthoshKumar1" target="_blank" class="social-float github-float" data-tooltip="View GitHub">
+            <i class="fab fa-github"></i>
+            <div class="float-pulse"></div>
+        </a>
+        <a href="https://t.me/santhoshkumar_a" target="_blank" class="social-float telegram-float" data-tooltip="Message on Telegram">
+            <i class="fab fa-telegram"></i>
+            <div class="float-pulse"></div>
+        </a>
+    </div>
+
     <!-- Quick Hire Me Floating Button -->
     <div class="floating-hire-me">
         <a href="#contact" class="hire-me-float">
@@ -62,20 +89,32 @@
                     </a>
                 </div>
 
+                <!-- Quick Contact Links in Hero -->
+                <div class="hero-contact-links">
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+918637437840">+91 86374 37840</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:santhoshasokan@gmail.com">santhoshasokan@gmail.com</a>
+                    </div>
+                </div>
+
                 <!-- Quick Social Links in Hero -->
                 <div class="hero-social-links">
                     <span class="social-label">Connect with me:</span>
                     <div class="hero-social-icons">
-                        <a href="https://wa.me/918637437840" target="_blank" class="hero-social-link whatsapp-hero">
+                        <a href="https://wa.me/918637437840" target="_blank" class="hero-social-link whatsapp-hero" data-tooltip="Chat on WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://linkedin.com/in/asanthosh-kumar568" target="_blank" class="hero-social-link linkedin-hero">
+                        <a href="https://linkedin.com/in/asanthosh-kumar568" target="_blank" class="hero-social-link linkedin-hero" data-tooltip="Connect on LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://github.com/ASanthoshKumar1" target="_blank" class="hero-social-link github-hero">
+                        <a href="https://github.com/ASanthoshKumar1" target="_blank" class="hero-social-link github-hero" data-tooltip="View GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://t.me/yourtelegram" target="_blank" class="hero-social-link telegram-hero">
+                        <a href="https://t.me/santhoshkumar_a" target="_blank" class="hero-social-link telegram-hero" data-tooltip="Message on Telegram">
                             <i class="fab fa-telegram"></i>
                         </a>
                     </div>
@@ -88,7 +127,7 @@
                         <i class="fas fa-shield-alt"></i> OSINT Certificate
                     </a>
                 </div>
-                <p class="location-tag">Current Location: Puducherry</p>
+                <p class="location-tag">📍 Current Location: Puducherry, India</p>
             </div>
             
             <div class="hero-visuals">
@@ -121,10 +160,16 @@
                 <div class="hire-callout-content">
                     <h3>Ready to Build Your Next Project?</h3>
                     <p>I'm available for full-time, part-time, and contract work. Let's discuss how I can help your team.</p>
-                    <a href="#contact" class="cta-btn primary">
-                        <i class="fas fa-handshake"></i>
-                        Start Conversation
-                    </a>
+                    <div class="contact-actions">
+                        <a href="tel:+918637437840" class="cta-btn primary">
+                            <i class="fas fa-phone"></i>
+                            Call Now
+                        </a>
+                        <a href="mailto:santhoshasokan@gmail.com" class="cta-btn secondary">
+                            <i class="fas fa-envelope"></i>
+                            Email Me
+                        </a>
+                    </div>
                 </div>
                 <div class="hire-callout-icon">
                     <i class="fas fa-code"></i>
@@ -177,10 +222,13 @@
                 <div class="project-hire-content">
                     <h3>Like What You See?</h3>
                     <p>I can build similar solutions for your business. Let's discuss your project requirements.</p>
-                    <a href="#contact" class="cta-btn secondary">
-                        <i class="fas fa-lightbulb"></i>
-                        Discuss Project
-                    </a>
+                    <div class="project-contact-options">
+                        <a href="https://wa.me/918637437840?text=Hi%20Santhosh,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." 
+                           target="_blank" class="cta-btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp Project Discussion
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -208,7 +256,8 @@
                     <p>Built a Java full-stack web application using JSP, Servlets, JDBC, and MySQL. Implemented secure authentication and modular CRUD operations.</p>
                     <p class="impact-text">Impact: Reduced manual data errors by 40%.</p>
                     <div class="project-hire-cta">
-                        <a href="#contact" class="project-hire-link">
+                        <a href="mailto:santhoshasokan@gmail.com?subject=Java%20Development%20Project%20Inquiry&body=Hi%20Santhosh,%20I'm%20interested%20in%20your%20Java%20development%20services." 
+                           class="project-hire-link">
                             <i class="fas fa-briefcase"></i>
                             Need similar solution?
                         </a>
@@ -238,7 +287,8 @@
                        target="_blank"
                        class="project-link">View GitHub Repository</a>
                     <div class="project-hire-cta">
-                        <a href="#contact" class="project-hire-link">
+                        <a href="mailto:santhoshasokan@gmail.com?subject=Security%20Project%20Inquiry&body=Hi%20Santhosh,%20I%20need%20your%20security%20expertise%20for%20a%20project." 
+                           class="project-hire-link">
                             <i class="fas fa-shield-alt"></i>
                             Need security expertise?
                         </a>
@@ -267,7 +317,8 @@
                        target="_blank"
                        class="project-link">View SpringBoot/React Project</a>
                     <div class="project-hire-cta">
-                        <a href="#contact" class="project-hire-link">
+                        <a href="mailto:santhoshasokan@gmail.com?subject=Full-Stack%20Development%20Inquiry&body=Hi%20Santhosh,%20I%20need%20a%20full-stack%20developer%20for%20my%20project." 
+                           class="project-hire-link">
                             <i class="fas fa-layer-group"></i>
                             Need full-stack developer?
                         </a>
@@ -290,7 +341,8 @@
                     <h3>Team Lead - Capgemini/TNS India Foundation</h3>
                     <p>Served as a Team Lead in Capgemini's CSR program, guiding digital literacy initiatives and collaborating with Capgemini mentors for project execution.</p>
                     <div class="project-hire-cta">
-                        <a href="#contact" class="project-hire-link">
+                        <a href="mailto:santhoshasokan@gmail.com?subject=Team%20Leadership%20Inquiry&body=Hi%20Santhosh,%20I'm%20interested%20in%20your%20team%20leadership%20skills." 
+                           class="project-hire-link">
                             <i class="fas fa-users"></i>
                             Need team leadership?
                         </a>
@@ -329,10 +381,16 @@
                             <small>Vulnerability Assessment</small>
                         </div>
                     </div>
-                    <a href="#contact" class="cta-btn primary availability-cta">
-                        <i class="fas fa-calendar-check"></i>
-                        Schedule Interview
-                    </a>
+                    <div class="availability-contact">
+                        <a href="tel:+918637437840" class="cta-btn primary">
+                            <i class="fas fa-phone"></i>
+                            Call to Discuss
+                        </a>
+                        <a href="https://wa.me/918637437840" target="_blank" class="cta-btn secondary">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -465,16 +523,16 @@
                                 <small>Fast Response</small>
                             </a>
                             
-                            <a href="https://calendly.com/your-calendar" target="_blank" class="cta-option calendar-cta">
-                                <i class="fas fa-video"></i>
-                                <span>Video Call</span>
-                                <small>30 min meeting</small>
+                            <a href="tel:+918637437840" class="cta-option call-cta">
+                                <i class="fas fa-phone"></i>
+                                <span>Call Directly</span>
+                                <small>+91 86374 37840</small>
                             </a>
                             
                             <a href="mailto:santhoshasokan@gmail.com" class="cta-option email-cta">
                                 <i class="fas fa-envelope"></i>
                                 <span>Send Email</span>
-                                <small>Detailed discussion</small>
+                                <small>santhoshasokan@gmail.com</small>
                             </a>
                         </div>
 
@@ -490,7 +548,7 @@
         <!-- CONTACT -->
         <section id="contact" class="section-hidden">
             <h2>05. Get In Touch</h2>
-            <p class="contact-subtitle">Ready to collaborate on a challenging project? Send a secure message.</p>
+            <p class="contact-subtitle">Ready to collaborate on a challenging project? Send me a message and I'll respond within hours.</p>
 
             <!-- Animated Contact Cards -->
             <div class="contact-cards">
@@ -519,7 +577,7 @@
                         <div class="icon-orbital"></div>
                     </div>
                     <div class="contact-text">
-                        <span class="contact-label">EMAIL</span>
+                        <span class="contact-label">PRIMARY EMAIL</span>
                         <a href="mailto:santhoshasokan@gmail.com" class="contact-value">
                             santhoshasokan@gmail.com
                         </a>
@@ -537,7 +595,7 @@
                         <div class="icon-orbital"></div>
                     </div>
                     <div class="contact-text">
-                        <span class="contact-label">PHONE</span>
+                        <span class="contact-label">PHONE / WHATSAPP</span>
                         <a href="tel:+918637437840" class="contact-value">
                             +91 86374 37840
                         </a>
@@ -549,23 +607,24 @@
 
             <!-- Contact Form & Social Side by Side -->
             <div class="contact-content-wrapper">
-                <!-- Animated Contact Form -->
+                <!-- REAL FORMSPREE CONTACT FORM -->
                 <div class="contact-form-wrapper" data-aos="zoom-in">
                     <div class="form-header">
-                        <h3>Send Secure Message</h3>
+                        <h3>Send Message Directly to My Email</h3>
                         <div class="form-security-indicator">
                             <div class="security-dot active"></div>
                             <div class="security-dot active"></div>
                             <div class="security-dot active"></div>
-                            <span>Connection Secured</span>
+                            <span>Messages go to my inbox</span>
                         </div>
                     </div>
                     
-                    <form class="cyber-form" id="contactForm">
+                    <!-- Formspree Form - REPLACE YOUR_FORMSPREE_ID WITH ACTUAL ID -->
+                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="cyber-form" id="contactForm">
                         <div class="form-group">
                             <div class="input-container">
                                 <input type="text" id="name" name="name" required>
-                                <label for="name" class="floating-label">Your Name</label>
+                                <label for="name" class="floating-label">Your Full Name</label>
                                 <div class="input-underline"></div>
                                 <div class="input-focus-border"></div>
                             </div>
@@ -577,7 +636,7 @@
                         <div class="form-group">
                             <div class="input-container">
                                 <input type="email" id="email" name="email" required>
-                                <label for="email" class="floating-label">Your Email</label>
+                                <label for="email" class="floating-label">Your Email Address</label>
                                 <div class="input-underline"></div>
                                 <div class="input-focus-border"></div>
                             </div>
@@ -594,6 +653,7 @@
                                     <option value="part-time">Part-Time Work</option>
                                     <option value="contract">Contract Project</option>
                                     <option value="consulting">Security Consulting</option>
+                                    <option value="collaboration">Project Collaboration</option>
                                     <option value="other">Other Inquiry</option>
                                 </select>
                                 <label for="inquiry-type" class="floating-label">Type of Inquiry</label>
@@ -604,11 +664,23 @@
                                 <i class="fas fa-briefcase"></i>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="input-container">
+                                <input type="text" id="company" name="company">
+                                <label for="company" class="floating-label">Company/Organization (Optional)</label>
+                                <div class="input-underline"></div>
+                                <div class="input-focus-border"></div>
+                            </div>
+                            <div class="input-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
                         
                         <div class="form-group">
                             <div class="input-container">
-                                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
-                                <label for="message" class="floating-label">Project Details</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project, timeline, budget, and any specific requirements..."></textarea>
+                                <label for="message" class="floating-label">Project Details & Requirements</label>
                                 <div class="input-underline"></div>
                                 <div class="input-focus-border"></div>
                             </div>
@@ -619,31 +691,28 @@
                         
                         <button type="submit" class="cyber-submit-btn">
                             <span class="btn-content">
-                                <span class="btn-text">Send Project Inquiry</span>
+                                <span class="btn-text">Send Message to Santhosh</span>
                                 <span class="btn-icon">
                                     <i class="fas fa-paper-plane"></i>
                                 </span>
                             </span>
-                            <span class="btn-loader">
-                                <div class="loader-dots">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                </div>
-                            </span>
                             <div class="btn-shine"></div>
-                            <div class="btn-particles"></div>
                         </button>
+
+                        <p class="form-note">
+                            <i class="fas fa-info-circle"></i>
+                            This message will be delivered directly to my email inbox. I typically respond within 2-4 hours.
+                        </p>
                     </form>
                 </div>
 
                 <!-- Enhanced Social Links with Animation -->
                 <div class="social-wrapper" data-aos="fade-left">
                     <div class="social-header">
-                        <h3>Connect Securely</h3>
+                        <h3>Instant Connection</h3>
                         <div class="connection-status">
                             <div class="status-pulse"></div>
-                            <span>Online</span>
+                            <span>Available Now</span>
                         </div>
                     </div>
                     
@@ -660,7 +729,7 @@
                                 </div>
                             </div>
                             <span class="social-label">WhatsApp</span>
-                            <span class="social-status">Quick Response</span>
+                            <span class="social-status">Instant Response</span>
                         </a>
                         
                         <a href="https://linkedin.com/in/asanthosh-kumar568" target="_blank" class="social-card linkedin-social" data-tooltip="Connect on LinkedIn">
@@ -675,7 +744,7 @@
                                 </div>
                             </div>
                             <span class="social-label">LinkedIn</span>
-                            <span class="social-status">Professional</span>
+                            <span class="social-status">Professional Network</span>
                         </a>
                         
                         <a href="https://github.com/ASanthoshKumar1" target="_blank" class="social-card github-social" data-tooltip="View GitHub Profile">
@@ -690,10 +759,10 @@
                                 </div>
                             </div>
                             <span class="social-label">GitHub</span>
-                            <span class="social-status">Projects</span>
+                            <span class="social-status">Code Portfolio</span>
                         </a>
                         
-                        <a href="https://t.me/sandysanthosh_2003" target="_blank" class="social-card telegram-social" data-tooltip="Message on Telegram">
+                        <a href="https://t.me/santhoshkumar_a" target="_blank" class="social-card telegram-social" data-tooltip="Message on Telegram">
                             <div class="social-inner">
                                 <div class="social-icon">
                                     <i class="fab fa-telegram"></i>
@@ -705,7 +774,7 @@
                                 </div>
                             </div>
                             <span class="social-label">Telegram</span>
-                            <span class="social-status">Instant Chat</span>
+                            <span class="social-status">Quick Chat</span>
                         </a>
                     </div>
                     
@@ -715,18 +784,44 @@
                         <span class="response-text">Average response time: 2-4 hours</span>
                     </div>
 
-                    <!-- Quick Hire Options -->
-                    <div class="quick-hire-options">
-                        <h4>Quick Hire Options</h4>
-                        <div class="hire-buttons">
-                            <a href="tel:+918637437840" class="quick-hire-btn call-btn">
+                    <!-- Quick Contact Options -->
+                    <div class="quick-contact-options">
+                        <h4>Direct Contact Methods</h4>
+                        <div class="contact-buttons">
+                            <a href="tel:+918637437840" class="quick-contact-btn call-btn">
                                 <i class="fas fa-phone"></i>
                                 Call Now
+                                <small>+91 86374 37840</small>
                             </a>
-                            <a href="https://wa.me/918637437840" target="_blank" class="quick-hire-btn whatsapp-btn">
+                            <a href="https://wa.me/918637437840" target="_blank" class="quick-contact-btn whatsapp-btn">
                                 <i class="fab fa-whatsapp"></i>
                                 WhatsApp
+                                <small>Instant Message</small>
                             </a>
+                            <a href="mailto:santhoshasokan@gmail.com" class="quick-contact-btn email-btn">
+                                <i class="fas fa-envelope"></i>
+                                Email
+                                <small>santhoshasokan@gmail.com</small>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="business-hours">
+                        <h5>Best Time to Reach Me</h5>
+                        <div class="hours-list">
+                            <div class="hour-item">
+                                <span>Mon - Fri</span>
+                                <span>9:00 AM - 6:00 PM IST</span>
+                            </div>
+                            <div class="hour-item">
+                                <span>Saturday</span>
+                                <span>10:00 AM - 2:00 PM IST</span>
+                            </div>
+                            <div class="hour-item">
+                                <span>Urgent Projects</span>
+                                <span>Available 24/7</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -741,8 +836,8 @@
                         <div class="status-pulse"></div>
                     </div>
                     <div class="status-info">
-                        <span class="status-text">Currently available for cybersecurity projects</span>
-                        <span class="status-subtext">Immediate response guaranteed</span>
+                        <span class="status-text">Currently accepting new projects and job opportunities</span>
+                        <span class="status-subtext">Available for immediate start</span>
                     </div>
                 </div>
             </div>
@@ -767,20 +862,24 @@
                     <p>Full-Stack Developer & Cyber Security Analyst</p>
                     <div class="footer-availability">
                         <div class="footer-dot"></div>
-                        <span>Available for hire</span>
+                        <span>Available for immediate hire</span>
+                    </div>
+                    <div class="footer-contact-info">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+918637437840">+91 86374 37840</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:santhoshasokan@gmail.com">santhoshasokan@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="footer-social">
-                    <a href="https://wa.me/918637437840" target="_blank" class="footer-social-link">
+                    <a href="https://wa.me/918637437840" target="_blank" class="footer-social-link" data-tooltip="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="https://linkedin.com/in/asanthosh-kumar568" target="_blank" class="footer-social-link">
+                    <a href="https://linkedin.com/in/asanthosh-kumar568" target="_blank" class="footer-social-link" data-tooltip="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/ASanthoshKumar1" target="_blank" class="footer-social-link">
+                    <a href="https://github.com/ASanthoshKumar1" target="_blank" class="footer-social-link" data-tooltip="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://t.me/yourtelegram" target="_blank" class="footer-social-link">
+                    <a href="https://t.me/santhoshkumar_a" target="_blank" class="footer-social-link" data-tooltip="Telegram">
                         <i class="fab fa-telegram"></i>
                     </a>
                 </div>
@@ -788,6 +887,40 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Simple JavaScript for form handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    const submitBtn = this.querySelector('.cyber-submit-btn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const originalText = btnText.textContent;
+                    
+                    // Show loading state
+                    btnText.textContent = 'Sending Message...';
+                    submitBtn.style.pointerEvents = 'none';
+                    
+                    // Form will be handled by Formspree
+                    // The page will redirect to Formspree's success page
+                });
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
